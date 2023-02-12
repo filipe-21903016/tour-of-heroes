@@ -9,6 +9,9 @@ export class MockHeroRepo extends BaseHeroRepo{
     heroes = HEROES;
 
     searchHero(term: string): Observable<IHero[]> {
+        if (!term.trim()) {
+            return of([]);
+        }
         let heros = this.heroes.filter( hero =>
             hero.name.indexOf(term) > -1
         )
