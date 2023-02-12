@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IHero } from '../../models/IHero';
+import { BehaviorSubject, first, shareReplay, Subject, Subscription, switchMap, tap } from 'rxjs';
+import { IHero } from 'src/app/models/IHero';
 import { HeroService } from '../../services/hero.service';
 
 @Component({
@@ -10,29 +11,29 @@ import { HeroService } from '../../services/hero.service';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent {
-  @Input() hero?: IHero;
-
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
   ){}
 
-  ngOnInit(): void {
-    this.getHero();
-  }
-  
-  getHero(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+  hero$ = this.route.paramMap.pipe(
+    switchMap(params => this.heroService.getHero(Number(params.get('id')))),
+    shareReplay(1)
+  )
+
+  private _heroSavedSubject$ = new Subject<IHero>();
+  heroSavedAction$ = this._heroSavedSubject$.asObservable(); 
+
+  ngOnInit(){
+    this.heroSavedAction$.pipe(
+      first(),
+    )
+    .subscribe(() => this.goBack());
   }
 
-  save(): void {
-    if (this.hero) {
-      this.heroService.updateHero(this.hero)
-        .subscribe(() => {console.log("registered go back");this.goBack()});
-    }
+  save(hero:IHero): void {
+    this._heroSavedSubject$.next(hero);
   }
 
   goBack(){
