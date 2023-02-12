@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { HEROES } from '../mock-heroes';
 import { IHero } from '../models/IHero';
 import { MessageService } from './messages.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaseRepo } from '../models/BaseRepo';
+import { BaseHeroRepo } from '../models/BaseHeroRepo';
 
 @Injectable({
   providedIn: 'root'
@@ -14,37 +16,36 @@ export class HeroService {
   }
 
   constructor(
-    private http: HttpClient,
+    private heroRepo: BaseHeroRepo,
     private messageService: MessageService
   ){}
   
   getHeroes(): Observable<IHero[]>{
-    return this.http.get<IHero[]>(this.heroesUrl).pipe(
+    return this.heroRepo.all().pipe(
       tap(_ => this.log('fetched heroes')),
       catchError(this.handleError<IHero[]>('getHeroes', []))
-    )
+    );
   }
 
   getHero(id:number): Observable<IHero>{
-    const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<IHero>(url).pipe(
+    return this.heroRepo.find(id).pipe(
       tap(_ => this.log(`Fetched hero id=${id}`)),
       catchError(this.handleError(`getHero id=${id}`, {} as IHero))
-    );
+    )
   }
 
   updateHero(hero: IHero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    return this.heroRepo.update(hero.id, hero).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
-    );
+    )
   }
 
   addHero(hero: IHero): Observable<IHero> {
-    return this.http.post<IHero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: IHero) => this.log(`added hero w/ id=${newHero.id}`)),
+    return this.heroRepo.create(hero).pipe(
+      tap(hero => this.log(`created hero id = ${hero.id}`)),
       catchError(this.handleError<IHero>('addHero'))
-    );
+    )
   }
 
   handleError<T>(operation = 'operation', result?:T){
@@ -56,44 +57,22 @@ export class HeroService {
   }
 
   deleteHero(id: number): Observable<IHero> {
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this.http.delete<IHero>(url, this.httpOptions).pipe(
+    return this.heroRepo.delete(id).pipe(
       tap(_ => this.log(`deleted hero id=${id}`)),
       catchError(this.handleError<IHero>('deleteHero'))
     );
   }
 
-  /* GET heroes whose name contains search term */
   searchHeroes(term: string): Observable<IHero[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<IHero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap(x => x.length ?
-        this.log(`found heroes matching "${term}"`) :
-        this.log(`no heroes matching "${term}"`)),
-      catchError(this.handleError<IHero[]>('searchHeroes', []))
-    );
+    return this.heroRepo.searchHero(term).pipe(
+        tap(x => x.length ?
+            this.log(`found heroes matching "${term}"`) :
+            this.log(`no heroes matching "${term}"`)),
+        catchError(this.handleError<IHero[]>('searchHeroes', []))
+    )
   }
   
   private log(message:string){
     this.messageService.add(`HeroService: ${message}`);
   }
-
-  // getHeroes(): Observable<IHero[]> {
-  //   return of(HEROES).pipe(
-  //     tap(_ => this.messageService.add('HeroService: fetched heroes'))
-  //   );
-  // }
-
-  // getHero(id: number): Observable<IHero> {
-  //   // For now, assume that a hero with the specified `id` always exists.
-  //   // Error handling will be added in the next step of the tutorial.
-  //   const hero = HEROES.find(h => h.id === id)!;
-  //   this.messageService.add(`HeroService: fetched hero id=${id}`);
-  //   return of(hero);
-  // }
-
 }
