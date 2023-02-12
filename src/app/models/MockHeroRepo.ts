@@ -13,7 +13,7 @@ export class MockHeroRepo extends BaseHeroRepo{
             return of([]);
         }
         let heros = this.heroes.filter( hero =>
-            hero.name.indexOf(term) > -1
+            hero.name.toLocaleLowerCase().indexOf(term.toLocaleLowerCase()) > -1
         )
         return of(heros);
     }
