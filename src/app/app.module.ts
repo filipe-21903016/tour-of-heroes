@@ -13,7 +13,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { MessageService } from './services/messages.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { RemoteHeroRepo } from './models/RemoteHeroRepo';
 import { BaseHeroRepo } from './models/BaseHeroRepo';
 import { MockHeroRepo } from './models/MockHeroRepo';
