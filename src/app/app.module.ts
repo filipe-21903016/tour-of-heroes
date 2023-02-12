@@ -14,9 +14,9 @@ import { MessageService } from './services/messages.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { BaseRepo } from './models/BaseRepo';
 import { RemoteHeroRepo } from './models/RemoteHeroRepo';
 import { BaseHeroRepo } from './models/BaseHeroRepo';
+import { MockHeroRepo } from './models/MockHeroRepo';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { BaseHeroRepo } from './models/BaseHeroRepo';
     HeroService,
     MessageService,
     InMemoryDataService,
-    {provide: BaseHeroRepo, useClass: RemoteHeroRepo}
+    // {provide: BaseHeroRepo, useClass: RemoteHeroRepo}
+    {provide: BaseHeroRepo, useClass: MockHeroRepo}
   ],
   bootstrap: [AppComponent]
 })

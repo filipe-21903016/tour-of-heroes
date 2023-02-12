@@ -31,7 +31,7 @@ export class HeroDetailComponent {
   save(): void {
     if (this.hero) {
       this.heroService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
+        .subscribe(() => {console.log("registered go back");this.goBack()});
     }
   }
 
