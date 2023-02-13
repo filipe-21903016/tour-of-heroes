@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Observable } from 'rxjs';
 import { MessageService } from '../../services/messages.service';
 
 @Component({
@@ -7,5 +8,8 @@ import { MessageService } from '../../services/messages.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent {
-  constructor(protected messageService: MessageService) { }
+  messages$!:Observable<string[]>
+  constructor(protected messageService: MessageService) {
+    this.messages$ = this.messageService.messages$;
+  }
 }
