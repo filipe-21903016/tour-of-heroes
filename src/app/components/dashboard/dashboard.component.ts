@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable, shareReplay } from 'rxjs';
+import { IHero } from 'src/app/models/IHero';
 import { HeroService } from '../../services/hero.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { HeroService } from '../../services/hero.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent{
+  heroes$!:Observable<IHero[]>;
 
   constructor(private heroService: HeroService) { }
 
-  heroes$ = this.heroService.getHeroes().pipe(
-    map(heroes => heroes.slice(1,5))
-  );
+  ngOnInit(){
+    this.heroes$ = this.heroService.getHeroes().pipe(
+      map(heroes => heroes.slice(1,5)),
+      shareReplay(1)
+    );
+  }
 }
