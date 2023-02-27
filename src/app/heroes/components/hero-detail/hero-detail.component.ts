@@ -14,9 +14,9 @@ import {
   take,
   tap,
 } from 'rxjs';
-import { IHero } from 'src/app/models/IHero';
+import { IHero } from 'src/app/shared/models/IHero';
 import { CountryService } from 'src/app/shared/services/country.service';
-import { HeroService } from '../../../services/hero.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',

@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from './shared/services/messages.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ThemeService } from './services/theme.service';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { IHero } from '../../models/IHero';
+import { IHero } from '../models/IHero';
 
 @Pipe({
   name: 'heroImageSource',

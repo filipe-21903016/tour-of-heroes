@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {
   HttpClient,
   HttpClientModule,
@@ -8,22 +8,14 @@ import {
 } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RemoteHeroRepo } from './models/RemoteHeroRepo';
-import { BaseHeroRepo } from './models/BaseHeroRepo';
-import { BaseCountryRepo } from './models/BaseCountryRepo';
-import { RemoteCountryRepo } from './models/RemoteCountryRepo';
+import { RemoteHeroRepo } from './heroes/models/RemoteHeroRepo';
+import { BaseHeroRepo } from './heroes/models/BaseHeroRepo';
+import { BaseCountryRepo } from './heroes/models/BaseCountryRepo';
+import { RemoteCountryRepo } from './heroes/models/RemoteCountryRepo';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatListModule } from '@angular/material/list';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -43,19 +35,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule,
     MatIconModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatSnackBarModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
     MatDialogModule,

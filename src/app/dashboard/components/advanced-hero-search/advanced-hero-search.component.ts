@@ -10,11 +10,11 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { ICountry } from 'src/app/models/ICountry';
-import { IHero } from 'src/app/models/IHero';
+import { ICountry } from 'src/app/shared/models/ICountry';
+import { IHero } from 'src/app/shared/models/IHero';
 import { ISearchTerms } from 'src/app/dashboard/components/advanced-hero-search/ISearchTerms';
 import { CountryService } from 'src/app/shared/services/country.service';
-import { HeroService } from 'src/app/services/hero.service';
+import { HeroService } from 'src/app/heroes/services/hero.service';
 
 @Component({
   selector: 'app-advanced-hero-search',

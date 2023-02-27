@@ -8,10 +8,10 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { IHero } from '../models/IHero';
-import { MessageService } from '../shared/services/messages.service';
+import { IHero } from '../../shared/models/IHero';
+import { MessageService } from '../../shared/services/messages.service';
 import { BaseHeroRepo } from '../models/BaseHeroRepo';
-import { ISearchTerms } from '../dashboard/components/advanced-hero-search/ISearchTerms';
+import { ISearchTerms } from '../../dashboard/components/advanced-hero-search/ISearchTerms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({

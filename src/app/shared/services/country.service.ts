@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { combineLatest, map, Observable, of, tap } from 'rxjs';
-import { BaseCountryRepo } from '../../models/BaseCountryRepo';
-import { ICountry } from '../../models/ICountry';
+import { BaseCountryRepo } from '../../heroes/models/BaseCountryRepo';
+import { ICountry } from '../models/ICountry';
 import { MessageService } from './messages.service';
 
 @Injectable({

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
 import { map, Observable, shareReplay } from 'rxjs';
-import { IHero } from 'src/app/models/IHero';
-import { HeroService } from '../../../services/hero.service';
+import { IHero } from 'src/app/shared/models/IHero';
+import { HeroService } from '../../../heroes/services/hero.service';
 
 @Component({
   selector: 'app-dashboard',

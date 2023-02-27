@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import { BaseHeroRepo } from './BaseHeroRepo';
-import { IHero } from './IHero';
-import { ISearchTerms } from '../dashboard/components/advanced-hero-search/ISearchTerms';
+import { IHero } from '../../shared/models/IHero';
+import { ISearchTerms } from '../../dashboard/components/advanced-hero-search/ISearchTerms';
 
 @Injectable()
 export class RemoteHeroRepo extends BaseHeroRepo {

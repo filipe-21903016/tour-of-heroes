@@ -6,9 +6,9 @@ import {
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { pipe, take } from 'rxjs';
-import { IHero } from 'src/app/models/IHero';
-import { HeroService } from 'src/app/services/hero.service';
+import { take } from 'rxjs';
+import { IHero } from 'src/app/shared/models/IHero';
+import { HeroService } from 'src/app/heroes/services/hero.service';
 
 @Component({
   selector: 'app-hero-card',

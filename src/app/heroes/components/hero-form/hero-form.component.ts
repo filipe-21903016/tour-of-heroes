@@ -9,9 +9,9 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ICountry } from 'src/app/models/ICountry';
-import { IHero } from 'src/app/models/IHero';
-import { DocumentService } from 'src/app/services/document.service';
+import { ICountry } from 'src/app/shared/models/ICountry';
+import { IHero } from 'src/app/shared/models/IHero';
+import { DocumentService } from '../../services/document.service';
 
 @Component({
   selector: 'app-hero-form',
