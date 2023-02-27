@@ -13,12 +13,13 @@ export class MessageService {
 
   constructor(){
     this.actions$ = merge(
-      this.addSubject.asObservable().pipe(map(message => ({type:'ADD',payload:message} as IMessageAction))),
-      this.clearSubject.asObservable().pipe(map(_=>({type:'CLEAR'} as IMessageAction)))
+      this.addSubject.pipe(map(message => ({type:'ADD',payload:message} as IMessageAction))),
+      this.clearSubject.pipe(map(_=>({type:'CLEAR'} as IMessageAction)))
     );
 
     this.messages$ = this.actions$.pipe(
-      scan((messages, action) => (action.type === 'ADD') ? [...messages,action.payload??''] : [], [] as string[])
+      scan((messages, action) =>
+        (action.type === 'ADD') ? [...messages,action.payload??''] : [], [] as string[])
     )
   }
 

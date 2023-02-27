@@ -1,14 +1,14 @@
-import { Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MessageService } from '../../services/messages.service';
+import { MessageService } from '../../shared/services/messages.service';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessagesComponent {
-  messages$!:Observable<string[]>
+  messages$!: Observable<string[]>;
   constructor(protected messageService: MessageService) {
     this.messages$ = this.messageService.messages$;
   }

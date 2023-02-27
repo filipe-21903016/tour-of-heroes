@@ -1,0 +1,8 @@
+.hero-card{
+  max-width: 400px;
+  margin: 10px;
+  margin-left: 0px;
+}
+p{
+  color: var(--text-secondary)
+}

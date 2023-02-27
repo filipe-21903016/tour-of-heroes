@@ -1,0 +1,95 @@
+<div *ngIf="hero; else loading">
+  <form [formGroup]="heroForm" (ngSubmit)="submit()" novalidate>
+    <fieldset>
+      <div [appHoverEffect]="'UPLOAD_IMAGE' | translate">
+        <img
+          #heroImage
+          id="uploadImage"
+          [src]="hero | heroImageSource : loadedFile | async"
+          alt=""
+          (click)="fileUploader.click()"
+        />
+      </div>
+      <input
+        #fileUploader
+        hidden
+        type="file"
+        formControlName="document"
+        (change)="onFileChanged($event)"
+      />
+    </fieldset>
+
+    <!-- hero name -->
+    <mat-form-field>
+      <mat-label for="heroName">{{ "HERO_NAME" | translate }}</mat-label>
+      <input matInput id="heroName" type="text" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <!-- date -->
+      <mat-label for="heroDate">{{ "DATE" | translate }}</mat-label>
+      <input matInput formControlName="date" id="heroDate" type="date" />
+    </mat-form-field>
+
+    <!-- countries -->
+    <mat-form-field>
+      <mat-label for="hero-countries">{{ "COUNTRY" | translate }}</mat-label>
+      <mat-select formControlName="countryId">
+        <mat-option
+          *ngFor="let country of countries; trackBy: trackById"
+          [value]="country.id"
+          >{{ country.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <!-- people saved -->
+    <mat-form-field>
+      <mat-label for="hero-people-saved">{{
+        "PEOPLE_SAVED" | translate
+      }}</mat-label>
+      <input
+        matInput
+        formControlName="peopleSaved"
+        id="hero-people-saved"
+        type="number"
+        name="heroPeopleSaved"
+      />
+    </mat-form-field>
+
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="mode !== 'VIEW'"
+        type="submit"
+        class="add-button"
+      >
+        {{ submitButtonText | uppercase | translate }}
+      </button>
+
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="mode === 'VIEW'"
+        type="button"
+        class="add-button"
+        (click)="submit()"
+      >
+        {{ submitButtonText | uppercase | translate }}
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        class="add-button"
+        (click)="back()"
+      >
+        {{ backButtonText | uppercase | translate }}
+      </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #loading> Loading </ng-template>

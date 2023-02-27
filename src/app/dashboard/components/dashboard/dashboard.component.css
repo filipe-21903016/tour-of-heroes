@@ -7,7 +7,7 @@ h2 {
 .heroes-menu {
   padding: 0;
   margin: auto;
-  max-width: 1000px;
+  /* max-width: 100 */
 
   /* flexbox */
   display: flex;
@@ -27,7 +27,6 @@ a {
   display: inline-block;
   color: #fff;
   text-align: center;
-  width: 100%;
   min-width: 70px;
   margin: .5rem auto;
   box-sizing: border-box;

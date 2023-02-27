@@ -1,0 +1,40 @@
+:root{
+  --primary: #ff6f60;
+  --secondary: #5efc82;
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --background:#f1f1f1;
+  --danger:red; 
+  --h3-fg: black;
+  --h2-fg: black;
+  --h1-fg: black;
+}
+
+/* body,html{
+  background-color: var(--background);
+}
+
+h1 {
+  color: var(--h1-fg);
+}
+
+h2 {
+  color: var(--h2-fg);
+}
+
+.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base{
+  background-color: var(--primary);
+  color: var(--text-primary);
+}
+
+.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-accent.mat-mdc-button-base{
+  background-color: var(--secondary);
+  color: var(--text-primary);
+}
+.mat-mdc-icon-button.mat-primary{
+  --mdc-icon-button-icon-color:var(--primary)
+}
+
+.mat-mdc-icon-button.mat-warn{
+  --mdc-icon-button-icon-color: var(--danger);
+} */

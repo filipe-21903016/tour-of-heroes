@@ -1,0 +1,11 @@
+:root{
+  --primary: #ab000d;
+  --secondary: #009624;
+  --text-primary: #ffffff;
+  --text-secondary: black;
+  --background:#000133;
+  --danger: red;
+  --h3-fg: white;
+  --h2-fg: white;
+  --h1-fg: white;
+}

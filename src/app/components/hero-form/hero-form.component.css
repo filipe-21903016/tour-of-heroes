@@ -1,0 +1,18 @@
+form {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+form > mat-form-field{
+  margin: 10px;
+}
+
+fieldset{
+  border:none
+}
+
+#uploadImage{
+  max-width: 100%;
+}

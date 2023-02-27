@@ -1,37 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
 import { IHero } from '../../models/IHero';
+import { map, Observable, repeat, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroesComponent {
-  heroes: IHero[] = [];
+  heroes$!: Observable<IHero[]>;
+  heroesReload$ = new Subject<void>();
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.heroes$ = this.heroService.getHeroes().pipe(
+      map((heroes) => heroes.sort((p, c) => p.peopleSaved - c.peopleSaved)),
+      repeat({ delay: () => this.heroesReload$ })
+    );
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+  onHeroAction() {
+    this.heroesReload$.next();
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as IHero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
+  goCreateHero() {
+    this.router.navigate(['/heroes/create'], {
+      queryParams: { mode: 'CREATE' },
+    });
   }
 
-  delete(hero: IHero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
+  protected trackById(index: number, element: IHero) {
+    return element.id;
   }
 }

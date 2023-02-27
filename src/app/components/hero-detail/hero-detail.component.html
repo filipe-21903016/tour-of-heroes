@@ -1,10 +1,11 @@
-<div *ngIf="hero$ | async as hero">
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
-    </div>
-  <button type="button" (click)="save(hero)">save</button>
-  <button type="button" (click)="goBack()">back</button>
+<div class="container">
+  <h2>{{ pageTitle$ | async }}</h2>
+  <app-hero-form
+    [hero]="hero$ | async"
+    [countries]="countries$ | async"
+    [mode]="mode$ | async"
+    (onSubmit)="save($event)"
+    [submitButtonText]="(submitButtonText$ | async) ?? ''"
+    (onBack)="goBack()"
+  ></app-hero-form>
 </div>

@@ -1,45 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
-/* Application-wide Styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body,html{
+  font-family: 'Roboto';
+  background-color: var(--background);
+}
+
 h1 {
-    color: #369;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
-  }
-  h2, h3 {
-    color: #444;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-  }
-  body {
-    margin: 2em;
-  }
-  body, input[type="text"], button {
-    color: #333;
-    font-family: Cambria, Georgia, serif;
-  }
-  button {
-    background-color: #eee;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: black;
-    font-size: 1.2rem;
-    padding: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-  button:hover {
-    background-color: black;
-    color: white;
-  }
-  button:disabled {
-    background-color: #eee;
-    color: #aaa;
-    cursor: auto;
-  }
-  
-  /* everywhere else */
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  color: var(--h1-fg);
+}
+
+h2 {
+  color: var(--h2-fg);
+}
+
+h3 {
+  color:var(--h3-fg);
+}
+
+p{
+  color:var(--text-primary)
+}
+
+.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base{
+  background-color: var(--primary);
+  color: var(--text-primary);
+}
+
+.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-accent.mat-mdc-button-base{
+  background-color: var(--secondary);
+  color: var(--text-primary);
+}
+.mat-mdc-icon-button.mat-primary{
+  --mdc-icon-button-icon-color:var(--primary)
+}
+
+.mat-mdc-icon-button.mat-warn{
+  --mdc-icon-button-icon-color: var(--danger);
+}
+
+.mdc-button {
+  margin: 0.5rem;
+}
+
+.mdc-switch.mdc-switch--selected.mdc-switch--checked{
+  --mdc-icon-button-icon-color:var(--primary)
+}
+
+.mat-mdc-slide-toggle.mat-accent{
+    --mdc-switch-selected-focus-state-layer-color: var(--secondary);
+    --mdc-switch-selected-handle-color: var(--secondary);
+    --mdc-switch-selected-hover-state-layer-color:var(--secondary) ;
+    --mdc-switch-selected-pressed-state-layer-color:var(--secondary) ;
+    --mdc-switch-selected-focus-handle-color:var(--secondary);
+    --mdc-switch-selected-hover-handle-color: var(--secondary);
+    --mdc-switch-selected-pressed-handle-color: var(--secondary);
+    --mdc-switch-selected-focus-track-color: var(--secondary);
+    --mdc-switch-selected-hover-track-color: var(--secondary);
+    --mdc-switch-selected-pressed-track-color: var(--secondary);
+    --mdc-switch-selected-track-color: var(--secondary);
+}
+
+.container{margin: 1rem;}

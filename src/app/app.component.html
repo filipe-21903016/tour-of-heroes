@@ -1,7 +1,38 @@
-<h1>{{title}}</h1>
+<h1>{{ "TOUR_OF_HEROES" | translate }}</h1>
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+  <div class="nav-actions-container">
+    <a
+      mat-raised-button
+      routerLink="/dashboard"
+      color="primary"
+      class="nav-link"
+      >{{ "DASHBOARD" | translate }}</a
+    >
+    <a
+      mat-raised-button
+      routerLink="/heroes"
+      color="primary"
+      class="nav-link"
+      >{{ "HEROES" | translate }}</a
+    >
+  </div>
+  <div class="settings-container">
+    <mat-slide-toggle
+      class="dark-mode-slide"
+      color="accent"
+      [ngModel]="darkMode"
+      (ngModelChange)="toggleDarkMode()"
+      ><mat-icon class="dark-mode-icon">dark_mode</mat-icon></mat-slide-toggle
+    >
+    <mat-button-toggle-group (change)="setLang($event.value)" value="en">
+      <mat-button-toggle value="pt">
+        <mat-icon svgIcon="PT"></mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="en">
+        <mat-icon svgIcon="EN"></mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

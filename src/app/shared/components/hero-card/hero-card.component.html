@@ -1,0 +1,46 @@
+<mat-card class="hero-card" color="primary">
+  <mat-card-header>
+    <div
+      *ngIf="hero.documentId"
+      mat-card-avatar
+      [ngStyle]="{
+        'background-image': 'url(/api/documents/' + hero.documentId + ')',
+        'background-size': 'cover'
+      }"
+    ></div>
+    <mat-card-title color="primary">
+      {{ hero.name }}
+    </mat-card-title>
+    <mat-card-subtitle>{{ hero.country.name }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{
+        "HERO_DESCRIPTION1"
+          | translate
+            : {
+                countryName: hero.country.name,
+                heroName: hero.name,
+                heroDate: hero.date | date
+              }
+      }}
+    </p>
+    <p *ngIf="hero.peopleSaved > 0">
+      {{
+        "HERO_DESCRIPTION2"
+          | translate
+            : {
+                peopleSaved: hero.peopleSaved
+              }
+      }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button color="accent" type="button" (click)="view()">
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" type="button" (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

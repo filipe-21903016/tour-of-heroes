@@ -1,0 +1,63 @@
+<div class="container">
+  <div id="search-component" [formGroup]="searchForm">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ "NAME" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        [matAutocomplete]="auto"
+        id="name-box"
+        type="text"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let hero of filteredHeroes$ | async; trackBy: trackById"
+          [value]="hero.name"
+          >{{ hero.name }}</mat-option
+        >
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ "PEOPLE_SAVED" | translate }}</mat-label>
+      <input matInput formControlName="peopleSaved" type="number" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "START_DATE" | translate }}</mat-label>
+      <input matInput formControlName="startDate" type="date" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ "END_DATE" | translate }}</mat-label>
+      <input matInput formControlName="endDate" type="date" />
+    </mat-form-field>
+    <mat-form-field *ngIf="countries$ | async">
+      <mat-label for="countries">{{ "COUNTRIES" | translate }}</mat-label>
+      <mat-select formControlName="selectedCountries" multiple>
+        <mat-option
+          *ngFor="let country of countries$ | async; trackBy: trackById"
+          [value]="country"
+        >
+          {{ country.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="filteredHeroes$ | async">
+    <h3 class="results-title">{{ "RESULTS" | translate }}</h3>
+    <div fxLayout="row wrap" fxLayoutGap.sm="">
+      <div
+        fxFlex="25%"
+        fxFlex.xs="100%"
+        fxFlex.sm="33%"
+        *ngFor="let hero of filteredHeroes$ | async; trackBy: trackById"
+      >
+        <app-hero-card
+          [hero]="hero"
+          (onDelete)="triggerHeroesReload()"
+        ></app-hero-card>
+      </div>
+    </div>
+  </div>
+</div>

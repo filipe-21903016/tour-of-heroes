@@ -1,0 +1,37 @@
+{
+  "TOUR_OF_HEROES": "Tour of Heroes",
+  "DASHBOARD": "Dashboard",
+  "HEROES": "Heroes",
+  "NAME": "Name",
+  "PEOPLE_SAVED": "People Saved",
+  "START_DATE": "Start Date",
+  "END_DATE": "End Date",
+  "COUNTRIES": "Countries",
+  "RESULTS": "Results",
+  "CREATE_HERO": "Create Hero",
+  "MY_HEROES": "My Heroes",
+  "HERO_DESCRIPTION1": "Originally from {{ countryName }}, {{ heroName }} discovered his/hers powers in {{ heroDate }}",
+  "HERO_DESCRIPTION2": "Since then, {{ peopleSaved }} people were saved!",
+  "CLEAR_MESSAGES": "Clear Messages",
+  "MESSAGES": "Messages",
+  "UPLOAD_IMAGE": "Upload Image",
+  "HERO_NAME": "Hero Name",
+  "DATE": "Date",
+  "COUNTRY": "Country",
+  "EDIT": "Edit",
+  "SAVE": "Save",
+  "BACK": "Back",
+  "HERO_SERVICE": {
+    "FETCHED_HEROES": "Fetched Heroes",
+    "FETCHED_HERO": "Fetched hero id={{ heroId }}",
+    "UPDATED_HERO": "Updated hero id={{ heroId }}",
+    "CREATED_HERO": "Created hero id={{ heroId }}",
+    "DELETED_HERO": "Deleted hero id={{ heroId }}",
+    "HEROES_FOUND": "Found {{heroesLength}} heroes matching {{query}}",
+    "HEROES_NOT_FOUND": "No heroes matching {{query}}"
+  },
+  "COUNTRY_SERVICE": {
+    "FETCHED_COUNTRIES": "Fetched countries",
+    "FETCHED_COUNTRY": "Fetched country id={{countryId}}"
+  }
+}

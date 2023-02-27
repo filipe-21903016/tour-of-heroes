@@ -1,0 +1,37 @@
+{
+  "TOUR_OF_HEROES": "Tour de Heróis",
+  "DASHBOARD": "Dashboard",
+  "HEROES": "Heróis",
+  "NAME": "Nome",
+  "PEOPLE_SAVED": "Pessoas Salvas",
+  "START_DATE": "Data de Começo",
+  "END_DATE": "Data de fim",
+  "COUNTRIES": "Países",
+  "RESULTS": "Resultados",
+  "CREATE_HERO": "Criar Herói",
+  "MY_HEROES": "Os Meus Heróis",
+  "HERO_DESCRIPTION1": "Originalmente de {{ countryName }}, {{ heroName }} descobriu os seus poderes em {{ heroDate }}",
+  "HERO_DESCRIPTION2": "Desde então, {{ peopleSaved }} pessoas foram salvas!",
+  "CLEAR_MESSAGES": "Limpar Mensagens",
+  "MESSAGES": "Mensagem",
+  "UPLOAD_IMAGE": "Carregar Imagem",
+  "HERO_NAME": "Nome do Herói",
+  "DATE": "Data",
+  "COUNTRY": "País",
+  "EDIT": "Editar",
+  "SAVE": "Guardar",
+  "BACK": "Voltar",
+  "HERO_SERVICE": {
+    "FETCHED_HEROES": "Obteve Heróis",
+    "FETCHED_HERO": "Obteve herói id={{ heroId }}",
+    "UPDATED_HERO": "Atualizou herói id={{ heroId }}",
+    "CREATED_HERO": "Criou herói id={{ heroId }}",
+    "DELETED_HERO": "Apagou herói id={{ heroId }}",
+    "HEROES_FOUND": "Foram encontrados {{heroesLength}} heróis que correspondem a {{query}}",
+    "HEROES_NOT_FOUND": "Não foram encontrados heróis correspondentes a {{query}}"
+  },
+  "COUNTRY_SERVICE": {
+    "FETCHED_COUNTRIES": "Obteve países",
+    "FETCHED_COUNTRY": "Obteve país id={{countryId}}"
+  }
+}

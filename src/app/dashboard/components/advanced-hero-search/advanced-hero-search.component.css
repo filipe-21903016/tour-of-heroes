@@ -1,0 +1,8 @@
+#search-component{
+    display: flex;
+    flex-direction: row;
+}
+
+#search-component > mat-form-field{
+  margin: 10px;
+}
