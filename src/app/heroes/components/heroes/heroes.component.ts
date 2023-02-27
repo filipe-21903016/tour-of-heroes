@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { HeroService } from '../../services/hero.service';
-import { IHero } from '../../models/IHero';
+import { HeroService } from '../../../services/hero.service';
+import { IHero } from '../../../models/IHero';
 import { map, Observable, repeat, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 

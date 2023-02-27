@@ -7,15 +7,15 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { HeroesComponent } from './heroes/components/heroes/heroes.component';
+import { HeroDetailComponent } from './heroes/components/hero-detail/hero-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RemoteHeroRepo } from './models/RemoteHeroRepo';
 import { BaseHeroRepo } from './models/BaseHeroRepo';
 import { BaseCountryRepo } from './models/BaseCountryRepo';
 import { RemoteCountryRepo } from './models/RemoteCountryRepo';
-import { HeroFormComponent } from './components/hero-form/hero-form.component';
+import { HeroFormComponent } from './heroes/components/hero-form/hero-form.component';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,19 +35,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TeapotInterceptor } from './shared/utils/teapot.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    HeroFormComponent,
-  ],
+  declarations: [AppComponent, MessagesComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -77,7 +72,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TeapotInterceptor, multi: true },

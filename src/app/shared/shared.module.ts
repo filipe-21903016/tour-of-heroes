@@ -5,11 +5,9 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { HeroImageSourcePipe } from './utils/hero-image-source.pipe';
 import { HoverEffectDirective } from './utils/hover-effect.directive';
-import { TeapotComponent } from '../components/teapot/teapot.component';
+import { TeapotComponent } from './components/teapot/teapot.component';
 import { MatCardModule } from '@angular/material/card';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../app.module';
-import { HttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -26,14 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    TranslateModule.forChild({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+    TranslateModule.forChild(),
   ],
   exports: [
     HeroCardComponent,

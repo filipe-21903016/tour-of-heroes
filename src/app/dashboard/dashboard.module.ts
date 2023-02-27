@@ -34,14 +34,7 @@ import { SharedModule } from '../shared/shared.module';
     MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forChild({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+    TranslateModule.forChild(),
     SharedModule,
   ],
 })

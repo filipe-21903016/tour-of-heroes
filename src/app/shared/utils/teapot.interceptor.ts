@@ -7,7 +7,7 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { catchError, EMPTY, Observable, tap } from 'rxjs';
-import { TeapotComponent } from '../../components/teapot/teapot.component';
+import { TeapotComponent } from '../components/teapot/teapot.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Injectable()
