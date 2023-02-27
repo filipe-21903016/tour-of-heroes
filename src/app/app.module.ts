@@ -7,17 +7,20 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './shared/components/messages/messages.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RemoteHeroRepo } from './models/RemoteHeroRepo';
 import { BaseHeroRepo } from './models/BaseHeroRepo';
 import { BaseCountryRepo } from './models/BaseCountryRepo';
 import { RemoteCountryRepo } from './models/RemoteCountryRepo';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -38,17 +41,34 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    HeroFormComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MatSlideToggleModule,
     FormsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatButtonModule,
+    MatCardModule,
     MatIconModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatSnackBarModule,
     MatButtonToggleModule,
-    SharedModule,
+    MatSlideToggleModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -57,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TeapotInterceptor, multi: true },

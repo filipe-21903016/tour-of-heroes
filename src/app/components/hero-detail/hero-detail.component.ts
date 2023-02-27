@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -15,7 +16,7 @@ import {
 } from 'rxjs';
 import { IHero } from 'src/app/models/IHero';
 import { CountryService } from 'src/app/shared/services/country.service';
-import { HeroService } from '../../../services/hero.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',

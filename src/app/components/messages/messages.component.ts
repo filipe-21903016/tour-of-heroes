@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MessageService } from '../../services/messages.service';
+import { MessageService } from '../../shared/services/messages.service';
 
 @Component({
   selector: 'app-messages',
