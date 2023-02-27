@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     HeroImageSourcePipe,
     HoverEffectDirective,
     TeapotComponent,
+    MessagesComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatListModule,
     TranslateModule.forChild(),
   ],
   exports: [
@@ -31,6 +35,7 @@ import { MatButtonModule } from '@angular/material/button';
     HeroImageSourcePipe,
     HoverEffectDirective,
     TeapotComponent,
+    MessagesComponent,
   ],
 })
 export class SharedModule {}
